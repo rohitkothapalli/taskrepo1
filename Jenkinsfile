@@ -3,12 +3,12 @@
 
             
 pipeline {
-            agent any
-//     agent {
-//         node {
-//             label "agent1"
-//         }
-//     }
+            
+    agent {
+        node {
+            label "agent1"
+        }
+    }
      stages {
             stage('Packaging files to Executable Applications...........') {
             steps {
@@ -18,7 +18,7 @@ pipeline {
        stage('Building Image and Pushing Into Artifactory.......') {
       steps {
         dockerBuild(
-          dockerfilePath: '/Users/krvnbangarraju/.jenkins/workspace/cicd-task/Dockerfile',
+          dockerfilePath: '/home/jenkins/agent/workspace/cicdtask/Dockerfile',
           dockerImageName: 'my-docker-image',
           dockerImageTag: '1.0.1',
           dockerRegistryUrl: 'https://registry.hub.docker.com/',
@@ -34,7 +34,7 @@ pipeline {
               
             namespace: 'cicdtask',
             deploymentName: 'my-app',
-            yamlFilePath: '/Users/krvnbangarraju/.jenkins/workspace/cicd-task/Deployments'
+            yamlFilePath: '/home/jenkins/agent/workspace/cicdtask/Deployments/'
     
           )
         }
