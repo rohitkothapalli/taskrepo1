@@ -21,7 +21,6 @@ pipeline {
 //         } 
        stage('Building Image and Pushing Into Artifactory.......') {
       steps {
-                  sh 'service docker start'
         dockerBuild(
           dockerfilePath: '/home/jenkins/agent/workspace/cicdtask/Dockerfile',
           dockerImageName: 'my-docker-image',
