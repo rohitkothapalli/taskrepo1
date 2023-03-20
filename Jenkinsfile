@@ -11,7 +11,7 @@ pipeline {
     }
  tools {
         maven 'maven'
-        dockerTool 'docker'
+        dockerTool 'docker 23.0'
     }
      stages {
 //             stage('Packaging files to Executable Applications...........') {
