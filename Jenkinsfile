@@ -10,8 +10,7 @@ pipeline {
         }
     }
  tools {
-        maven 'maven',
-        docker 'docker'
+        maven 'maven'
     }
      stages {
             stage('Packaging files to Executable Applications...........') {
