@@ -9,9 +9,9 @@ pipeline {
             label "agent1"
         }
     }
-//  tools {
-//         maven '3.9.1'
-//     }
+ tools {
+        maven 'maven'
+    }
      stages {
             stage('Packaging files to Executable Applications...........') {
             steps {
