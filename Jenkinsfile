@@ -13,14 +13,15 @@ pipeline {
         maven 'maven'
         dockerTool 'docker'
     }
-     stages {
-            stage('Packaging files to Executable Applications...........') {
-            steps {
-                mavenBuild('pom.xml', '-Xmx2g')
-            }
-        } 
+//      stages {
+//             stage('Packaging files to Executable Applications...........') {
+//             steps {
+//                 mavenBuild('pom.xml', '-Xmx2g')
+//             }
+//         } 
        stage('Building Image and Pushing Into Artifactory.......') {
       steps {
+                  sh 'sudo dockerd'
         dockerBuild(
           dockerfilePath: '/home/jenkins/agent/workspace/cicdtask/Dockerfile',
           dockerImageName: 'my-docker-image',
