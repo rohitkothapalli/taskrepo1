@@ -9,10 +9,10 @@ pipeline {
             label "agent1"
         }
     }
-//  tools {
-//         maven 'maven'
+ tools {
+        maven 'maven'
 //         dockerTool 'docker'
-//     }
+    }
      stages {
             stage('Packaging files to Executable Applications...........') {
             steps {
