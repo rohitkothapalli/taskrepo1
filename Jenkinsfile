@@ -9,29 +9,29 @@ pipeline {
         }
     }
 
- tools {
-        maven 'maven' 
-    }
+//  tools {
+//         maven 'maven' 
+//     }
      stages {
-            stage('Packaging files to Executable Applications...........') {
-            steps {
-                mavenBuild('pom.xml', '-Xmx2g')
-            }
-        } 
-       stage('Building Image and Pushing Into Artifactory.......') {
+//             stage('Packaging files to Executable Applications...........') {
+//             steps {
+//                 mavenBuild('pom.xml', '-Xmx2g')
+//             }
+//         } 
+//        stage('Building Image and Pushing Into Artifactory.......') {
                    
-      steps {
+//       steps {
             
-        dockerBuild(
-          dockerfilePath: '/home/jenkins/agent/workspace/cicdtask/Dockerfile',
-          dockerImageName: 'my-docker-image',
-          dockerImageTag: '1.0.1',
-          dockerRegistryUrl: 'https://registry.hub.docker.com/',
-          dockerRegistryUsername: 'krvnb',
-          dockerRegistryPassword: 'RohiT.123'
-        )
-      }
-    }
+//         dockerBuild(
+//           dockerfilePath: '/home/jenkins/agent/workspace/cicdtask/Dockerfile',
+//           dockerImageName: 'my-docker-image',
+//           dockerImageTag: '1.0.1',
+//           dockerRegistryUrl: 'https://registry.hub.docker.com/',
+//           dockerRegistryUsername: 'krvnb',
+//           dockerRegistryPassword: 'RohiT.123'
+//         )
+//       }
+//     }
      stage('Deploying Application......') {
       steps {
         script {
