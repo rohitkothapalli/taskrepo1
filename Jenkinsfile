@@ -7,7 +7,6 @@ pipeline {
        node {
             label "agent1"
         }
-      docker { image 'node:16.13.1-alpine' }
     }
 
 //  tools {
@@ -21,6 +20,9 @@ pipeline {
             }
         } 
        stage('Building Image and Pushing Into Artifactory.......') {
+                     agent {
+                docker { image 'node:16.13.1-alpine' }
+            }
       steps {
             
         dockerBuild(
