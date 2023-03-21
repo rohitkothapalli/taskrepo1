@@ -5,9 +5,7 @@
 pipeline {
             
     agent {
-        node {
-            label "agent1"
-           kubernetes {
+      kubernetes {
       yaml '''
         apiVersion: v1
         kind: Pod
@@ -32,6 +30,8 @@ pipeline {
               path: /var/run/docker.sock    
         '''
     }
+        node {
+            label "agent1"
         }
     }
 //     agent {
