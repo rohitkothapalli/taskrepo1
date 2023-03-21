@@ -13,7 +13,7 @@ pipeline {
 //         maven 'maven'
 //         dockerTool 'docker'
 //     }
-//      stages {
+     stages {
 // //             stage('Packaging files to Executable Applications...........') {
 // //             steps {
 // //                 mavenBuild('pom.xml', '-Xmx2g')
