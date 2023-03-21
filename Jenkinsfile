@@ -20,9 +20,9 @@ pipeline {
             }
         } 
        stage('Building Image and Pushing Into Artifactory.......') {
-                   tool name: 'docker', type: 'dockerTool'
+                   
       steps {
-            
+            tool name: 'docker', type: 'dockerTool'
         dockerBuild(
           dockerfilePath: '/home/jenkins/agent/workspace/cicdtask/Dockerfile',
           dockerImageName: 'my-docker-image',
