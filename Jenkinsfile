@@ -9,10 +9,37 @@ pipeline {
             label "agent1"
         }
     }
- tools {
-        maven 'maven'
-        dockerTool 'docker'
+    agent {
+    kubernetes {
+      yaml '''
+        apiVersion: v1
+        kind: Pod
+        spec:
+          containers:
+          - name: maven
+            image: maven:alpine
+            command:
+            - cat
+            tty: true
+          - name: docker
+            image: docker:latest
+            command:
+            - cat
+            tty: true
+            volumeMounts:
+             - mountPath: /var/run/docker.sock
+               name: docker-sock
+          volumes:
+          - name: docker-sock
+            hostPath:
+              path: /var/run/docker.sock    
+        '''
     }
+  }
+//  tools {
+//         maven 'maven'
+//         dockerTool 'docker'
+//     }
      stages {
             stage('Packaging files to Executable Applications...........') {
             steps {
