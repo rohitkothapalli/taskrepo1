@@ -11,6 +11,7 @@ pipeline {
 
  tools {
         maven 'maven'
+        dockerTool 'docker'
        
     }
      stages {
@@ -22,7 +23,7 @@ pipeline {
        stage('Building Image and Pushing Into Artifactory.......') {
                    
       steps {
-            tool name: 'docker.io', type: 'dockerTool'
+            
         dockerBuild(
           dockerfilePath: '/home/jenkins/agent/workspace/cicdtask/Dockerfile',
           dockerImageName: 'my-docker-image',
