@@ -11,7 +11,7 @@ pipeline {
 
  tools {
         maven 'maven'
-        tool name: 'docker', type: 'dockerTool'
+       
     }
      stages {
             stage('Packaging files to Executable Applications...........') {
@@ -20,6 +20,7 @@ pipeline {
             }
         } 
        stage('Building Image and Pushing Into Artifactory.......') {
+                   tool name: 'docker', type: 'dockerTool'
       steps {
             
         dockerBuild(
