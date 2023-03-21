@@ -9,10 +9,10 @@ pipeline {
         }
     }
 
-//  tools {
-//         maven 'maven'
-//         dockerTool 'docker.io'
-//     }
+ tools {
+        maven 'maven'
+        tool name: 'docker', type: 'dockerTool'
+    }
      stages {
             stage('Packaging files to Executable Applications...........') {
             steps {
@@ -20,9 +20,6 @@ pipeline {
             }
         } 
        stage('Building Image and Pushing Into Artifactory.......') {
-                     agent {
-                label { image 'node:16.13.1-alpine' }
-            }
       steps {
             
         dockerBuild(
